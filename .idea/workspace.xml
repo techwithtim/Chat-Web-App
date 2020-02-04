@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3add042d-22c9-4d47-8fa0-3f0b07cdef7b" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1XKKkZegZk10k1VnTFs3MDPFHzR" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/website/main.py" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\timot\Desktop\Chat App\website" />
+      <recent name="C:\Users\timot\Desktop\Chat App" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.web_server">
+    <configuration name="server" type="PythonConfigurationType" factoryName="Python">
+      <module name="Chat App" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\ProgramData\Anaconda3\envs\Chat App\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/server" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server/server.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python">
+      <module name="Chat App" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\ProgramData\Anaconda3\envs\Chat App\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/client" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/client/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="web_server" type="PythonConfigurationType" factoryName="Python">
+      <module name="Chat App" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\ProgramData\Anaconda3\envs\Chat App\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/website" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/website/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.server" />
+      <item itemvalue="Python.test" />
+      <item itemvalue="Python.web_server" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3add042d-22c9-4d47-8fa0-3f0b07cdef7b" name="Default Changelist" comment="" />
+      <created>1580789490144</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580789490144</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="416" y="168" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580799601298">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="416" y="168" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.505.1536.800/0.0.1920.1040@0.0.1920.1040" timestamp="1580799601298" />
+    <state x="691" y="218" key="FileChooserDialogImpl" timestamp="1580799599872">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="691" y="218" key="FileChooserDialogImpl/-1920.505.1536.800/0.0.1920.1040@0.0.1920.1040" timestamp="1580799599872" />
+    <state width="1894" height="360" key="GridCell.Tab.0.bottom" timestamp="1580808472679">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1894" height="360" key="GridCell.Tab.0.bottom/-1920.505.1536.800/0.0.1920.1040@0.0.1920.1040" timestamp="1580808472679" />
+    <state width="1894" height="360" key="GridCell.Tab.0.center" timestamp="1580808472679">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1894" height="360" key="GridCell.Tab.0.center/-1920.505.1536.800/0.0.1920.1040@0.0.1920.1040" timestamp="1580808472679" />
+    <state width="1894" height="360" key="GridCell.Tab.0.left" timestamp="1580808472678">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1894" height="360" key="GridCell.Tab.0.left/-1920.505.1536.800/0.0.1920.1040@0.0.1920.1040" timestamp="1580808472678" />
+    <state width="1894" height="360" key="GridCell.Tab.0.right" timestamp="1580808472679">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1894" height="360" key="GridCell.Tab.0.right/-1920.505.1536.800/0.0.1920.1040@0.0.1920.1040" timestamp="1580808472679" />
+    <state width="1894" height="196" key="GridCell.Tab.1.bottom" timestamp="1580804479402">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1894" height="196" key="GridCell.Tab.1.bottom/-1920.505.1536.800/0.0.1920.1040@0.0.1920.1040" timestamp="1580804479402" />
+    <state width="1894" height="196" key="GridCell.Tab.1.center" timestamp="1580804479402">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1894" height="196" key="GridCell.Tab.1.center/-1920.505.1536.800/0.0.1920.1040@0.0.1920.1040" timestamp="1580804479402" />
+    <state width="1894" height="196" key="GridCell.Tab.1.left" timestamp="1580804479402">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1894" height="196" key="GridCell.Tab.1.left/-1920.505.1536.800/0.0.1920.1040@0.0.1920.1040" timestamp="1580804479402" />
+    <state width="1894" height="196" key="GridCell.Tab.1.right" timestamp="1580804479402">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1894" height="196" key="GridCell.Tab.1.right/-1920.505.1536.800/0.0.1920.1040@0.0.1920.1040" timestamp="1580804479402" />
+    <state x="354" y="78" key="SettingsEditor" timestamp="1580793146653">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="354" y="78" key="SettingsEditor/-1920.505.1536.800/0.0.1920.1040@0.0.1920.1040" timestamp="1580793146653" />
+    <state x="592" y="303" key="com.intellij.ide.util.TipDialog" timestamp="1580789495544">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="592" y="303" key="com.intellij.ide.util.TipDialog/-1920.505.1536.800/0.0.1920.1040@0.0.1920.1040" timestamp="1580789495544" />
+    <state width="375" height="218" key="javadoc.popup.new" timestamp="1580806615231">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="375" height="218" key="javadoc.popup.new/-1920.505.1536.800/0.0.1920.1040@0.0.1920.1040" timestamp="1580806615231" />
+  </component>
+</project>
