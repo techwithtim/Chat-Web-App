@@ -4,14 +4,14 @@ import time
 from person import Person
 
 # GLOBAL CONSTANTS
-HOST = 'localhost'
+HOST = ''
 PORT = 5500
 ADDR = (HOST, PORT)
 MAX_CONNETIONS = 10
 BUFSIZ = 512
 
 # GLOBAL VARIABLES
-persons  = []
+persons = []
 SERVER = socket(AF_INET, SOCK_STREAM)
 SERVER.bind(ADDR)  # set up server
 
@@ -47,28 +47,22 @@ def client_communication(person):
     broadcast(msg, "")  # broadcast welcome message
 
     while True:  # wait for any messages from person
-        try:
-            msg = client.recv(BUFSIZ)
-            
-            if msg == bytes("{quit}", "utf8"):  # if message is qut disconnect client
-                client.close()
-                persons.remove(person)
-                broadcast(bytes(f"{name} has left the chat...", "utf8"), "")
-                print(f"[DISCONNECTED] {name} disconnected")
-                break
-            else:  # otherwise send message to all other clients
-                broadcast(msg, name+": ")
-                print(f"{name}: ", msg.decode("utf8"))
+        msg = client.recv(BUFSIZ)
 
-        except Exception as e:
-            print("[EXCEPTION]", e)
+        if msg == bytes("{quit}", "utf8"):  # if message is qut disconnect client
+            client.close()
+            persons.remove(person)
+            broadcast(bytes(f"{name} has left the chat...", "utf8"), "")
+            print(f"[DISCONNECTED] {name} disconnected")
             break
+        else:  # otherwise send message to all other clients
+            broadcast(msg, name+": ")
+            print(f"{name}: ", msg.decode("utf8"))
 
 
 def wait_for_connection():
     """
     Wait for connecton from new clients, start new thread once connected
-    :param SERVER: SOCKET
     :return: None
     """
 

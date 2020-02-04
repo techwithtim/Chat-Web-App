@@ -2,6 +2,26 @@
 
 {% block title %}Login{% endblock %}
 
+{% block messages %}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+            {% for message in messages %}
+              {% set display = slice(message, "1:") %}
+              {% set prefix = slice[0] %}
+              {% if prefix == "1" %}
+                <div class="alert alert-secondary" role="alert">
+                {{ display }}
+                </div>
+              {% else %}
+                <div class="alert alert-danger" role="alert">
+                {{ display }}
+                </div>
+              {% endif %}
+            {% endfor %}
+      {% endif %}
+    {% endwith %}
+{% endblock %}
+
 
 {% block content %}
 <form class="form-inline" action="#" method="POST">

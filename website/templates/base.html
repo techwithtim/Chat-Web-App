@@ -3,9 +3,60 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <style type="text/css">
+            /* Chat containers */
+            .container {
+              border: 2px solid #dedede;
+              background-color: #f1f1f1;
+              border-radius: 5px;
+              padding: 10px;
+              margin: 10px 0;
+            }
 
+            /* Darker chat container */
+            .darker {
+              border-color: #ccc;
+              background-color: #ddd;
+            }
+
+            /* Clear floats */
+            .container::after {
+              content: "";
+              clear: both;
+              display: table;
+            }
+
+            /* Style images */
+            .container b {
+              float: left;
+              max-width: 60px;
+              width: 100%;
+              margin-right: 20px;
+              border-radius: 50%;
+            }
+
+            /* Style the right image */
+            .container b.right {
+              float: right;
+              margin-left: 20px;
+              margin-right:0;
+            }
+
+            /* Style time text */
+            .time-right {
+              float: right;
+              color: #aaa;
+            }
+
+            /* Style time text */
+            .time-left {
+              float: left;
+              color: #999;
+            }
+        </style>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <title>{% block title %}{% endblock %}</title>
     </head>
@@ -25,16 +76,17 @@
             </div>
           </div>
         </nav>
-
-        <!--
-        <div class="alert alert-dark" role="alert">
-            {% block messageGrey %}
-            {% endblock %}
-        </div>
-        <div class="alert alert-success" role="alert">
-            {% block messageGreen %}
-            {% endblock %}
-        </div>-->
+        {% block messages %}
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <div class="alert alert-dark" role="alert">
+                    {% for message in messages %}
+                      {{ message }}
+                    {% endfor %}
+                </div>
+              {% endif %}
+            {% endwith %}
+        {% endblock %}
 
         <div class="container">
             {% block content %}
