@@ -5,9 +5,10 @@ from application import create_app
 from application.database import DataBase
 import config
 
-# setup flask application
+# SETUP
 app = create_app()
 socketio = SocketIO(app)  # used for user communication
+
 
 # COMMUNICATION FUNCTIONS
 
@@ -30,5 +31,5 @@ def handle_my_custom_event(json, methods=['GET', 'POST']):
 
 # MAINLINE
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # start the web server 
     socketio.run(app, debug=True, host=str(config.Config.SERVER))

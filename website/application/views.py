@@ -4,13 +4,17 @@ from .database import DataBase
 
 view = Blueprint("views", __name__)
 
+
 # GLOBAL CONSTANTS
 NAME_KEY = 'name'
 MSG_LIMIT = 20
 
+
 # GLOBAL VARS
 client = None
 
+
+# VIEWS
 
 @view.route("/login", methods=["POST","GET"])
 def login():
@@ -71,7 +75,7 @@ def get_name():
 @view.route("/get_messages")
 def get_messages():
     """
-    :returns all messages stored in database
+    :return: all messages stored in database
     """
     db = DataBase()
     msgs = db.get_all_messages(MSG_LIMIT)
@@ -84,8 +88,10 @@ def get_messages():
     return jsonify(msgs)
 
 
+# UTILITIES
+
 def remove_seconds(msg):
     """
-    removes the seconds off of a date time string
+    :return: string with seconds trimmed off
     """
     return msg.split(".")[0][:-3]

@@ -1,18 +1,28 @@
-$(function()
-{
-  $('#messages') .css({'height': (($(window).height()) * 0.8)+'px'});
+async function add_messages(msg, scroll){
+  if( typeof msg.name !== 'undefined' ) {
+    var date = dateNow()
 
-  $(window).bind('resize', function(){
-      $('#messages') .css({'height': (($(window).height()) - 200)+'px'});
-  });
-});
+    if ( typeof msg.time !== "undefined") {
+      var n = msg.time
+    }else{
+      var n = date
+    }
+    var global_name = await load_name()
 
-function scrollSmoothToBottom (id) {
- var div = document.getElementById(id);
- $('#' + id).animate({
-    scrollTop: div.scrollHeight - div.clientHeight
- }, 500);
+    var content = '<div class="container">' + '<b style="color:#000" class="right">'+msg.name+'</b><p>' + msg.message +'</p><span class="time-right">' + n + '</span></div>'
+    if (global_name == msg.name){
+      content = '<div class="container darker">' + '<b style="color:#000" class="left">'+msg.name+'</b><p>' + msg.message +'</p><span class="time-left">' + n + '</span></div>'
+    }
+    // update div
+    var messageDiv = document.getElementById("messages")
+    messageDiv.innerHTML += content
+  }
+
+  if (scroll){
+    scrollSmoothToBottom("messages");
+  }
 }
+
 
 async function load_name(){
   return await fetch('/get_name')
@@ -23,6 +33,7 @@ async function load_name(){
       });
 };
 
+
 async function load_messages() {
   return await fetch('/get_messages')
    .then(async function (response) {
@@ -32,6 +43,25 @@ async function load_messages() {
       return text
   });
 }
+
+
+$(function()
+{
+  $('#messages') .css({'height': (($(window).height()) * 0.8)+'px'});
+
+  $(window).bind('resize', function(){
+      $('#messages') .css({'height': (($(window).height()) - 200)+'px'});
+  });
+});
+
+
+function scrollSmoothToBottom (id) {
+ var div = document.getElementById(id);
+ $('#' + id).animate({
+    scrollTop: div.scrollHeight - div.clientHeight
+ }, 500);
+}
+
 
 function dateNow() {
   var date = new Date();
@@ -62,6 +92,7 @@ function dateNow() {
 
   return cur_day + " " + hours + ":" + minutes;
 }
+
 
 var socket = io.connect('http://' + document.domain + ':' + location.port);
   socket.on( 'connect', async function() {
@@ -109,29 +140,4 @@ window.onload = async function() {
     add_messages(msgs[i], scroll)
   }
   
-}
-
-async function add_messages(msg, scroll){
-  if( typeof msg.name !== 'undefined' ) {
-    var date = dateNow()
-
-    if ( typeof msg.time !== "undefined") {
-      var n = msg.time
-    }else{
-      var n = date
-    }
-    var global_name = await load_name()
-
-    var content = '<div class="container">' + '<b style="color:#000" class="right">'+msg.name+'</b><p>' + msg.message +'</p><span class="time-right">' + n + '</span></div>'
-    if (global_name == msg.name){
-      content = '<div class="container darker">' + '<b style="color:#000" class="left">'+msg.name+'</b><p>' + msg.message +'</p><span class="time-left">' + n + '</span></div>'
-    }
-    // update div
-    var messageDiv = document.getElementById("messages")
-    messageDiv.innerHTML += content
-  }
-
-  if (scroll){
-    scrollSmoothToBottom("messages");
-  }
 }

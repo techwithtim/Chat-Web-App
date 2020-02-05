@@ -1,17 +1,23 @@
 import sqlite3
 from sqlite3 import Error
-import os
 from datetime import datetime
 import time
 
-cwd = os.getcwd()
+
+# CONSTANTS
 
 FILE = "messages.db"
 PLAYLIST_TABLE = "Messages"
 
 
 class DataBase:
+    """
+    used to connect, write to and read from a local sqlite3 database
+    """
     def __init__(self):
+        """
+        try to connect to file and create cursor
+        """
         self.conn = None
         try:
             self.conn = sqlite3.connect(FILE)
@@ -42,12 +48,13 @@ class DataBase:
         """
         returns all messages
         :param limit: int
-        :return None
+        :return: list[dict]
         """
         query = f"SELECT * FROM {PLAYLIST_TABLE}"
         self.cursor.execute(query)
         result = self.cursor.fetchall()
 
+        # return messages in sorted order by date
         results = []
         for r in sorted(result, key=lambda x: x[3], reverse=True)[:limit]:
             name, content, date, _id = r
