@@ -1,10 +1,17 @@
-from os import environ
+from dotenv import load_dotenv
+from pathlib import Path  # python3 only
+import os
+
+# load enviornment variables
+env_path = Path('.') / '.env'
+load_dotenv(dotenv_path=env_path)
 
 
 class Config:
     """Set Flask configuration vars from .env file."""
 
-    # General
-    TESTING = environ.get('TESTING')
-    FLASK_DEBUG = environ.get('FLASK_DEBUG')
-    SECRET_KEY = environ.get('SECRET_KEY')
+    # Load in enviornemnt variables
+    TESTING = os.getenv('TESTING')
+    FLASK_DEBUG = os.getenv('FLASK_DEBUG')
+    SECRET_KEY = os.getenv('SECRET_KEY')
+    SERVER = os.getenv('SERVER')

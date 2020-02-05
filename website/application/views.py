@@ -6,7 +6,7 @@ view = Blueprint("views", __name__)
 
 # GLOBAL CONSTANTS
 NAME_KEY = 'name'
-MSG_LIMIT = 5
+MSG_LIMIT = 20
 
 # GLOBAL VARS
 client = None
@@ -75,4 +75,17 @@ def get_messages():
     """
     db = DataBase()
     msgs = db.get_all_messages(MSG_LIMIT)
+    messages = []
+    for msg in msgs:
+        message = msg
+        message["time"] = remove_seconds(message["time"])
+        messages.append(message)
+
     return jsonify(msgs)
+
+
+def remove_seconds(msg):
+    """
+    removes the seconds off of a date time string
+    """
+    return msg.split(".")[0][:-3]
