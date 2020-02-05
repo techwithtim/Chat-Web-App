@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Message History{% endblock %}
+
+{% block content %}
+
+<div class="row" style="padding-top:10px;" >
+    <div class="col"><hr></div>
+    <div class="col-auto"><p class="h3" align="center">View Message History</p></div>
+    <div class="col"><hr></div>
+</div>
+<div class="container">
+    <div class="overflow-auto" class="msgs" id="messagesHistory" style="overflow-y: scroll; height:500px;">
+        {% for msg in history %}
+            <div class="container darker"><b style="color:#000" class="left">{{msg["name"]}}</b><p> {{msg["message"]}}</p><span class="time-left">{{msg["time"]}}</span></div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

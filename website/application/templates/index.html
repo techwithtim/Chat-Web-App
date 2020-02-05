@@ -18,14 +18,26 @@
 {% endblock %}
 
 {% block content %}
-<div id="messages" class="overflow-auto" style="overflow-y: scroll; height:500px;">
+<style>
+    .form button:hover,.form button:active,.form button:focus {
+        background: #43A047;
+    }
+</style>
+<div class="row" style="padding-top:10px;" >
+    <div class="col"><hr></div>
+    <div class="col-auto"><p class="h3" align="center">Start Chatting</p></div>
+    <div class="col"><hr></div>
 </div>
-<form id="msgForm" action="" method="POST" style="bottom:0; margin: 0% 0% 0% 0%;">
-    <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Message" aria-label="Message" id="msg">
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="submit" id="sendBtn">Send</button>
-          </div>
+<div class="container">
+    <div id="messages" class="overflow-auto msgs" style="overflow-y: scroll; height:500px;">
     </div>
-</form>
+    <form id="msgForm" action="" method="POST" style="bottom:0; margin: 0% 0% 0% 0%;">
+        <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Message" aria-label="Message" id="msg">
+              <div class="input-group-append">
+                <button class="btn btn-success" type="submit" id="sendBtn">Send</button>
+              </div>
+        </div>
+    </form>
+</div>
 {% endblock %}

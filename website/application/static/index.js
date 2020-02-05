@@ -47,10 +47,10 @@ async function load_messages() {
 
 $(function()
 {
-  $('#messages') .css({'height': (($(window).height()) * 0.8)+'px'});
+  $('.msgs') .css({'height': (($(window).height()) * 0.7)+'px'});
 
   $(window).bind('resize', function(){
-      $('#messages') .css({'height': (($(window).height()) - 200)+'px'});
+      $('.msgs') .css({'height': (($(window).height()) * 0.7)+'px'});
   });
 });
 
@@ -121,13 +121,12 @@ var socket = io.connect('http://' + document.domain + ':' + location.port);
       } )
     } )
   } )
-  socket.on( 'disconnect', async function( msg ) {
+  /*socket.on( 'disconnect', async function( msg ) {
       var usr_name = await load_name()
       socket.emit( 'event', {
       message: usr_name + ' just left the server...',
-      name: usr_name
     } )
-  })
+  })*/
   socket.on( 'message response', function( msg ) {
     add_messages(msg, true)
   })
@@ -139,5 +138,12 @@ window.onload = async function() {
     if (i == msgs.length-1) {scroll = true}
     add_messages(msgs[i], scroll)
   }
-  
+
+  let name = await load_name()
+  if (name != ""){
+    $("#login").hide();
+  }else{
+    $("#logout").hide();
+  }
+
 }

@@ -3,7 +3,6 @@ from sqlite3 import Error
 from datetime import datetime
 import time
 
-
 # CONSTANTS
 
 FILE = "messages.db"
@@ -44,14 +43,19 @@ class DataBase:
         self.cursor.execute(query)
         self.conn.commit()
 
-    def get_all_messages(self, limit=100):
+    def get_all_messages(self, limit=100, name=None):
         """
         returns all messages
         :param limit: int
         :return: list[dict]
         """
-        query = f"SELECT * FROM {PLAYLIST_TABLE}"
-        self.cursor.execute(query)
+        if not name:
+            query = f"SELECT * FROM {PLAYLIST_TABLE}"
+            self.cursor.execute(query)
+        else:
+            query = f"SELECT * FROM {PLAYLIST_TABLE} WHERE NAME = ?"
+            self.cursor.execute(query, (name,))
+
         result = self.cursor.fetchall()
 
         # return messages in sorted order by date
@@ -62,6 +66,14 @@ class DataBase:
             results.append(data)
 
         return list(reversed(results))
+
+    def get_messages_by_name(self, name, limit=100):
+        """
+        Gets a list of messages by user name
+        :param name: str
+        :return: list
+        """
+        return self.get_all_messages(limit, name)
 
     def save_message(self, name, msg):
         """
