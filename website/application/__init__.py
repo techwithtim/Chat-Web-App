@@ -8,15 +8,18 @@ def create_app():
     app.config.from_object('config.Config')
     app.secret_key = "no"
 
-    # APP ROUTES
-
     with app.app_context():
         # Imports
         from .views import view
-        from .filters import filter
+        from .filters import _slice
         from .database import DataBase
 
+        # REGISTER ROUTES
         app.register_blueprint(view, url_prefix="/")
-        app.register_blueprint(filter, url_prefix="/filter")
+
+        # REGISTER CONTEXT PROCESSOR
+        @app.context_processor
+        def slice():
+            return dict(slice=_slice)
 
         return app

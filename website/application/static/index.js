@@ -53,9 +53,13 @@ window.onload = async function() {
 
 async function add_messages(msg){
     if( typeof msg.name !== 'undefined' ) {
-            var d = new Date()
-            var n = d.toLocaleTimeString()
+            var arr = " yyyy-mm-dd hh:mm:ss".split(/-|\s|:/);// split string and create array.
+            var date = new Date(arr[0], arr[1] -1, arr[2], arr[3], arr[4], arr[5]);
+
             if ( typeof msg.time !== "undefined") {
+                var n = msg.time
+            }else{
+                var n = date
             }
             var global_name = await load_name()
 

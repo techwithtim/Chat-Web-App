@@ -6,10 +6,10 @@ view = Blueprint("views", __name__)
 
 # GLOBAL CONSTANTS
 NAME_KEY = 'name'
+MSG_LIMIT = 5
 
 # GLOBAL VARS
 client = None
-MSG_LIMIT = 20
 
 
 @view.route("/login", methods=["POST","GET"])
@@ -38,7 +38,7 @@ def logout():
     :return: None
     """
     session.pop(NAME_KEY, None)
-    flash("You were logged out.")
+    flash("0You were logged out.")
     return redirect(url_for("views.login"))
 
 
@@ -59,6 +59,9 @@ def home():
 
 @view.route("/get_name")
 def get_name():
+    """
+    :return: a json object storing name of logged in user
+    """
     data = {"name": ""}
     if NAME_KEY in session:
         data = {"name": session[NAME_KEY]}
@@ -67,6 +70,9 @@ def get_name():
 
 @view.route("/get_messages")
 def get_messages():
+    """
+    :returns all messages stored in database
+    """
     db = DataBase()
     msgs = db.get_all_messages(MSG_LIMIT)
     return jsonify(msgs)

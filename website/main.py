@@ -10,13 +10,20 @@ socketio = SocketIO(app)  # used for user communication
 
 # COMMUNICATION FUNCTIONS
 
+
 @socketio.on('event')
 def handle_my_custom_event(json, methods=['GET', 'POST']):
-    print('received my event: ' + str(json))
+    """
+    handles saving messages once received from web server
+    and sending message to other clients
+    :param json: json
+    :param methods: POST GET
+    :return: None
+    """
     data = dict(json)
     if "name" in data:
         db = DataBase()
-        db.save_message(data["name"], data["message"], time.time())
+        db.save_message(data["name"], data["message"])
     socketio.emit('message response', json)
 
 

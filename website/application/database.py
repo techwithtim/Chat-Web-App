@@ -2,8 +2,7 @@ import sqlite3
 from sqlite3 import Error
 import os
 from datetime import datetime
-import pickle
-
+import time
 
 cwd = os.getcwd()
 
@@ -23,9 +22,17 @@ class DataBase:
         self._create_table()
 
     def close(self):
+        """
+        close the db connection
+        :return: None
+        """
         self.conn.close()
 
     def _create_table(self):
+        """
+        create new database table if one doesn't exist
+        :return: None
+        """
         query = f"""CREATE TABLE IF NOT EXISTS {PLAYLIST_TABLE}
                     (name TEXT, content TEXT, time Date, id INTEGER PRIMARY KEY AUTOINCREMENT)"""
         self.cursor.execute(query)
@@ -34,28 +41,30 @@ class DataBase:
     def get_all_messages(self, limit=100):
         """
         returns all messages
+        :param limit: int
+        :return None
         """
-        query = f"SELECT * FROM {PLAYLIST_TABLE} LIMIT {limit}"
+        query = f"SELECT * FROM {PLAYLIST_TABLE}"
         self.cursor.execute(query)
         result = self.cursor.fetchall()
 
         results = []
-        for r in result:
+        for r in sorted(result, key=lambda x: x[3], reverse=True)[:limit]:
             name, content, date, _id = r
-            data = {"name":name, "message":content, "time":date}
+            data = {"name":name, "message":content, "time":str(date)}
             results.append(data)
 
-        return results
+        return list(reversed(results))
 
-    def save_message(self, name, msg, time):
+    def save_message(self, name, msg):
         """
-        saves the given message
+        saves the given message in the table
         :param name: str
         :param msg: str
         :param time: datetime
-        :return:
+        :return: None
         """
         query = f"INSERT INTO {PLAYLIST_TABLE} VALUES (?, ?, ?, ?)"
-        self.cursor.execute(query, (name, msg,time, None))
+        self.cursor.execute(query, (name, msg,datetime.now(), None))
         self.conn.commit()
 
