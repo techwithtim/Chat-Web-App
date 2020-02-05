@@ -1,5 +1,6 @@
 from flask import Blueprint
 from flask import Flask, render_template, url_for, redirect, request, session, jsonify, flash, Blueprint
+from .database import DataBase
 
 view = Blueprint("views", __name__)
 
@@ -8,7 +9,7 @@ NAME_KEY = 'name'
 
 # GLOBAL VARS
 client = None
-messages = []
+MSG_LIMIT = 20
 
 
 @view.route("/login", methods=["POST","GET"])
@@ -23,7 +24,7 @@ def login():
         if len(name) >= 2:
             session[NAME_KEY] = name
             flash(f'You were successfully logged in as {name}.')
-            return redirect(url_for("home"))
+            return redirect(url_for("views.home"))
         else:
             flash("1Name must be longer than 1 character.")
 
@@ -38,7 +39,7 @@ def logout():
     """
     session.pop(NAME_KEY, None)
     flash("You were logged out.")
-    return redirect(url_for("login"))
+    return redirect(url_for("views.login"))
 
 
 @view.route("/")
@@ -51,7 +52,7 @@ def home():
     global client
 
     if NAME_KEY not in session:
-        return redirect(url_for("login"))
+        return redirect(url_for("views.login"))
 
     return render_template("index.html", **{"session": session})
 
@@ -62,3 +63,10 @@ def get_name():
     if NAME_KEY in session:
         data = {"name": session[NAME_KEY]}
     return jsonify(data)
+
+
+@view.route("/get_messages")
+def get_messages():
+    db = DataBase()
+    msgs = db.get_all_messages(MSG_LIMIT)
+    return jsonify(msgs)

@@ -3,7 +3,6 @@ from flask import Blueprint
 
 filter = Blueprint("filter", __name__)
 
-
 # JINJA TEMPLATE FILTERS
 @filter.context_processor
 def slice():

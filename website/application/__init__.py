@@ -1,26 +1,22 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
+from os import environ
 
 
 def create_app():
     """Construct the core application."""
     app = Flask(__name__, instance_relative_config=False)
-    db.init_app(app)
     app.config.from_object('config.Config')
+    app.secret_key = "no"
+
     # APP ROUTES
 
     with app.app_context():
         # Imports
         from .views import view
         from .filters import filter
-        from .models import Message
+        from .database import DataBase
 
         app.register_blueprint(view, url_prefix="/")
         app.register_blueprint(filter, url_prefix="/filter")
-
-        # Create tables for our models
-        db.create_all()
 
         return app
