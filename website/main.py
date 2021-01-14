@@ -29,7 +29,7 @@ def handle_my_custom_event(json, methods=['GET', 'POST']):
 
     socketio.emit('message response', json)
 
-# MAINLINE
 
-if __name__ == "__main__":  # start the web server 
+# MAINLINE
+if __name__ == "__main__":  # start the web server
     socketio.run(app, debug=True, host=str(config.Config.SERVER))

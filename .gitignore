@@ -1,0 +1,5 @@
+.vscode
+.idea/
+website/application/__pycache__
+website/__pycache__
+website/messages.db
