@@ -26,5 +26,7 @@ Before using socketio for this project I coded out a custom message server that 
 ## Livestream
 
 This project was built during a two part livestream.
+
 [Part 1!] (https://www.youtube.com/watch?v=i824zN0DGIo&t=15379s)
+
 [Part 2!] (https://www.youtube.com/watch?v=MgkldDDFJF4)
