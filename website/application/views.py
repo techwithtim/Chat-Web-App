@@ -12,7 +12,7 @@ MSG_LIMIT = 20
 # VIEWS
 
 
-@view.route("/login", methods=["POST","GET"])
+@view.route("/login", methods=["POST", "GET"])
 def login():
     """
     displays main login page and handles saving name in session
@@ -28,7 +28,7 @@ def login():
         else:
             flash("1Name must be longer than 1 character.")
 
-    return render_template("login.html", **{"session":"session"})
+    return render_template("login.html", **{"session": session})
 
 
 @view.route("/logout")
@@ -60,10 +60,10 @@ def history():
     if NAME_KEY not in session:
         flash("0Please login before viewing message history")
         return redirect(url_for("views.login"))
-    
+
     json_messages = get_history(session[NAME_KEY])
     print(json_messages)
-    return render_template("history.html", **{"history":json_messages})
+    return render_template("history.html", **{"history": json_messages})
 
 
 @view.route("/get_name")
