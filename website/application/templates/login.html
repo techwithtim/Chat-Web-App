@@ -24,7 +24,7 @@
 
 {% block content %}
 <style type="text/css">
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:300);
 
 .login-page {
   width: 360px;
@@ -65,7 +65,7 @@
   cursor: pointer;
 }
 .form button:hover,.form button:active,.form button:focus {
-  background: #43A047;
+  background: #343A40;
 }
 .form .message {
   margin: 15px 0 0;
@@ -84,16 +84,17 @@
   clear: both;
 }
 
+
 </style>
 
 <div class="login-page">
   <div class="form">
     <form class="login-form" action="#" method="POST">
       <input type="text" name="inputName" id="inputName" placeholder="Your Name"/>
-      <button type="submit" class="btn btn-success mb-2">Submit</button>
+      <button type="submit" class="btn ">Submit</button>
     </form>
-  </div>
+    </div>
 </div>
 
-<script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
 {% endblock %}

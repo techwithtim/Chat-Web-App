@@ -2,7 +2,7 @@ from old_msg_server.client import Client
 import time
 from threading import Thread
 
-c1 = Client("tim")
+c1 = Client("ola")
 c2 = Client("name")
 
 
