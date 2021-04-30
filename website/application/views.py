@@ -12,7 +12,7 @@ MSG_LIMIT = 20
 # VIEWS
 
 
-@view.route("/login", methods=["POST", "GET"])
+@view.route("/login",methods=['GET', 'POST'])
 def login():
     """
     displays main login page and handles saving name in session
@@ -42,8 +42,8 @@ def logout():
     return redirect(url_for("views.login"))
 
 
-@view.route("/",methods=['POST', 'GET'])
-@view.route("/home",methods=['POST', 'GET'])
+@view.route("/",methods=['GET', 'POST'])
+@view.route("/home",methods=['GET', 'POST'])
 def home():
     """
     displays home page if logged in
@@ -55,7 +55,7 @@ def home():
     return render_template("index.html", **{"session": session})
 
 
-@view.route("/history",methods=['POST', 'GET'])
+@view.route("/history",methods=['GET', 'POST'])
 def history():
     if NAME_KEY not in session:
         flash("0Please login before viewing message history")
@@ -66,7 +66,7 @@ def history():
     return render_template("history.html", **{"history": json_messages})
 
 
-@view.route("/get_name",methods=['POST', 'GET'])
+@view.route("/get_name",methods=['GET', 'POST'])
 def get_name():
     """
     :return: a json object storing name of logged in user
@@ -89,7 +89,7 @@ def get_messages():
     return jsonify(messages)
 
 
-@view.route("/get_history",methods=['POST', 'GET'])
+@view.route("/get_history",methods=['GET', 'POST'])
 def get_history(name):
     """
     :param name: str
