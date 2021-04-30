@@ -42,8 +42,8 @@ def logout():
     return redirect(url_for("views.login"))
 
 
-@view.route("/")
-@view.route("/home")
+@view.route("/",methods=['POST', 'GET'])
+@view.route("/home",methods=['POST', 'GET'])
 def home():
     """
     displays home page if logged in
@@ -55,7 +55,7 @@ def home():
     return render_template("index.html", **{"session": session})
 
 
-@view.route("/history")
+@view.route("/history",methods=['POST', 'GET'])
 def history():
     if NAME_KEY not in session:
         flash("0Please login before viewing message history")
@@ -66,7 +66,7 @@ def history():
     return render_template("history.html", **{"history": json_messages})
 
 
-@view.route("/get_name")
+@view.route("/get_name",methods=['POST', 'GET'])
 def get_name():
     """
     :return: a json object storing name of logged in user
@@ -77,7 +77,7 @@ def get_name():
     return jsonify(data)
 
 
-@view.route("/get_messages")
+@view.route("/get_messages",methods=['POST', 'GET'])
 def get_messages():
     """
     :return: all messages stored in database
@@ -89,7 +89,7 @@ def get_messages():
     return jsonify(messages)
 
 
-@view.route("/get_history")
+@view.route("/get_history",methods=['POST', 'GET'])
 def get_history(name):
     """
     :param name: str

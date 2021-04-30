@@ -8,7 +8,7 @@ from  config import Config
 
 # SETUP
 app = create_app()
-app.config.from_object(Config)
+
 socketio = SocketIO(app)  # used for user communication
 
 
