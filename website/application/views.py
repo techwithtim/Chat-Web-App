@@ -42,7 +42,7 @@ def logout():
     return redirect(url_for("views.login"))
 
 
-@view.route("/",methods=['GET', 'POST'])
+@view.route("/")
 @view.route("/home",methods=['GET', 'POST'])
 def home():
     """
@@ -77,7 +77,7 @@ def get_name():
     return jsonify(data)
 
 
-@view.route("/get_messages",methods=['POST', 'GET'])
+@view.route("/get_messages",methods=[ 'GET', 'POST'])
 def get_messages():
     """
     :return: all messages stored in database
