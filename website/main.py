@@ -33,4 +33,4 @@ def handle_my_custom_event(json, methods=['GET', 'POST']):
 
 # MAINLINE
 if __name__ == "__main__":  # start the web server
-    socketio.run(app, debug=True, host=str(config.Config.SERVER))
+    app.run(host=str(config.Config.SERVER))
