@@ -4,10 +4,11 @@ from flask_socketio import SocketIO
 import time
 from application import create_app
 from application.database import DataBase
-import config
+from  config import Config
 
 # SETUP
 app = create_app()
+app.config.from_object(Config)
 socketio = SocketIO(app)  # used for user communication
 
 
@@ -33,4 +34,4 @@ def handle_my_custom_event(json, methods=['GET', 'POST']):
 
 # MAINLINE
 if __name__ == "__main__":  # start the web server
-    app.run(host=str(config.Config.SERVER))
+    app.run()
