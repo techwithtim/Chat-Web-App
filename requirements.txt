@@ -1,4 +1,4 @@
-flask
-flask-socketio
+flask==1.1.1
+flask-socketio==5.0.0
 eventlet
 python-dotenv
